@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 interface Cycle {
   id: string;
@@ -14,7 +14,7 @@ interface CreateCycleData {
   minutesAmount: number;
 }
 
-interface CycleContextType {
+export interface CycleContextType {
   cycles: Cycle[];
   activeCycle: Cycle | undefined;
   activeCycleId: string | null;
@@ -25,12 +25,20 @@ interface CycleContextType {
   interruptCurrentCycle: () => void;
 }
 
+//Interface CyclesContextProvider: Define a estrutura para o provedor de contexto. O componente CyclesContextProvider 
+//receberá children, que são os componentes React que ele envolverá.
 interface CyclesContextProvider {
   children: ReactNode;
 }
 
-export const CyclesContext = createContext({} as CycleContextType);
+//Criação do Contexto: Cria o contexto CyclesContext com o tipo CycleContextType. Isso permitirá 
+//compartilhar dados entre componentes sem passar props manualmente.
+export const CyclesContext = createContext<CycleContextType>({} as CycleContextType);
 
+export const useCycles = (): CycleContextType => useContext(CyclesContext);
+
+//Provedor do Contexto: Função que serve como o provedor de dados. Envolverá componentes React filhos e 
+// permitirá que eles acessem e manipulem os ciclos.
 export function CyclesContextProvider({ children }: CyclesContextProvider) {
   const [cycles, setCycles] = useState<Cycle[]>([]);
   
@@ -88,6 +96,8 @@ export function CyclesContextProvider({ children }: CyclesContextProvider) {
     setActiveCycleId(null);
   }
 
+  // O provedor CyclesContext.Provider é configurado para expor o contexto (value) com todas as 
+  //funções e dados gerenciados. Ele envolve os componentes filhos (children), permitindo que eles acessem o contexto
   return (
     <CyclesContext.Provider
       value={{

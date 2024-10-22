@@ -26,6 +26,6 @@ export function Home() {
     <CyclesContext.Provider value={{ activeCycle, setActiveCycle }}>
       <NewCycleForm />
       <Countdown />
-      </CyclesContext.Provider>
+    </CyclesContext.Provider>
   );
 }
