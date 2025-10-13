@@ -62,8 +62,8 @@ devDependencies:
     specifier: ^5.1.0-rc.0
     version: 5.1.0-rc-fb9a90fa48-20240614(eslint@8.57.1)
   eslint-plugin-react-refresh:
-    specifier: ^0.4.9
-    version: 0.4.11(eslint@8.57.1)
+    specifier: ^0.4.23
+    version: 0.4.23(eslint@8.57.1)
   globals:
     specifier: ^15.9.0
     version: 15.9.0
@@ -1972,10 +1972,10 @@ packages:
       eslint: 8.57.1
     dev: true
 
-  /eslint-plugin-react-refresh@0.4.11(eslint@8.57.1):
-    resolution: {integrity: sha512-wrAKxMbVr8qhXTtIKfXqAn5SAtRZt0aXxe5P23Fh4pUAdC6XEsybGLB8P0PI4j1yYqOgUEUlzKAGDfo7rJOjcw==}
+  /eslint-plugin-react-refresh@0.4.23(eslint@8.57.1):
+    resolution: {integrity: sha512-G4j+rv0NmbIR45kni5xJOrYvCtyD3/7LjpVH8MPPcudXDcNu8gv+4ATTDXTtbRR8rTCM5HxECvCSsRmxKnWDsA==}
     peerDependencies:
-      eslint: '>=7'
+      eslint: '>=8.40'
     dependencies:
       eslint: 8.57.1
     dev: true
